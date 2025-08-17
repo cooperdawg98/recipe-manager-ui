@@ -8,8 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "api": "cd ../flask && venv/bin/flask run --no-debugger",
-    "full-dev":" vite && cd ../flask && venv/bin/flask run --no-debugger"
+    "api": "cd ../flask && venv/bin/flask run --no-debugger"
 
   },
   "dependencies": {
