@@ -1,25 +1,33 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
+import { isCounterType, type counterType } from './counterType';
 
 // Define a type for the slice state
 export interface CounterState {
     value: number
+    counterType: counterType;
 } 
   
 // Define the initial state using that type
 const initialState: CounterState = {
-    value: 0
+    value: 0,
+    counterType: "default"
 }
 
 export const counterSlice = createSlice({
   name: 'counter',
   initialState,
   reducers: {
+    setCounterType: (state, action: PayloadAction<string>) => {
+        if (isCounterType(action.payload)){
+            state.counterType = action.payload;
+        } else {
+            state.counterType = state.counterType;
+        }
+    },
+    toggleCounterType: (state) => {
+        state.counterType = state.counterType === "default" ? "custom" : "default";
+    },
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes.
-      // Also, no return statement is required from these functions.
       state.value += 1
     },
     decrement: (state) => {
@@ -28,10 +36,13 @@ export const counterSlice = createSlice({
     incrementByAmount: (state, action: PayloadAction<number>) => {
       state.value += action.payload
     },
+    decrementByAmount: (state, action: PayloadAction<number>) => {
+      state.value -= action.payload
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { increment, decrement, incrementByAmount, decrementByAmount, setCounterType, toggleCounterType} = counterSlice.actions
 
 export default counterSlice.reducer
