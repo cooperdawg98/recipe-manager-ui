@@ -1,4 +1,3 @@
-
 const validCounterTypes = ["default", "custom"] as const;
 export type counterType = (typeof validCounterTypes)[number];
 
