@@ -1,17 +1,19 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Counter from './features/counter/counter'
+import { useState, useEffect } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import Counter from "./features/counter/counter";
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0)
+  const [currentTime, setCurrentTime] = useState(0);
 
   useEffect(() => {
-    fetch("/api/time").then(res => res.json()).then(data => {
-      setCurrentTime(data.time)
-    })
-  }, [])
+    fetch("/api/time")
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrentTime(data.time);
+      });
+  }, []);
 
   return (
     <>
@@ -26,13 +28,15 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <Counter />
-        <p>The current time is {new Date(currentTime * 1000).toLocaleString()}.</p>
+        <p>
+          The current time is {new Date(currentTime * 1000).toLocaleString()}.
+        </p>
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
