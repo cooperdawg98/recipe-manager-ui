@@ -1,4 +1,4 @@
-import { Box, Button, Stack, Switch, Typography } from "@mui/joy";
+import { Button, Stack, Switch, Typography } from "@mui/joy";
 import {
   decrement,
   decrementByAmount,
@@ -15,11 +15,13 @@ const Counter = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Box>
-      <Typography fontSize="large" textColor={"primary.100"}>
-        Counter total: {count}
-      </Typography>
-      <Switch onChange={() => dispatch(toggleCounterType())} />
+    <Stack justifyContent={"center"} padding={"16px"}>
+      <Stack direction={"row"} justifyContent={"space-between"}>
+        <Typography fontSize="large" textColor={"primary.100"}>
+          Counter total: {count}
+        </Typography>
+        <Switch onChange={() => dispatch(toggleCounterType())} />
+      </Stack>
       {counterType === "default" ? (
         <Stack paddingTop={"16px"} gap={"8px"}>
           <Button onClick={() => dispatch(increment())}>Increment</Button>
@@ -31,7 +33,8 @@ const Counter = () => {
             label="Increment"
             handlePress={(changeValue) =>
               dispatch(incrementByAmount(changeValue))
-            }/>
+            }
+          />
           <CounterInputButton
             label="Decrement"
             handlePress={(changeValue) =>
@@ -40,7 +43,7 @@ const Counter = () => {
           />
         </Stack>
       )}
-    </Box>
+    </Stack>
   );
 };
 
