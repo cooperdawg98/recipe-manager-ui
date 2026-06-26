@@ -40,7 +40,7 @@ function App() {
         </Typography>
         <Stack className="card" justifyContent={"center"} padding={"8px"}>
           <Counter />
-          <Typography typography={"h4"}>
+          <Typography typography={"h5"} textColor={"primary.100"}>
             The current time is {new Date(currentTime * 1000).toLocaleString()}.
           </Typography>
         </Stack>
