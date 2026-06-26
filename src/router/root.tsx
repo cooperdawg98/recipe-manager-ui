@@ -9,7 +9,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <title>Recipe Manager</title>
         <Meta />
         <Links />
-        <link rel="apple-touch-icon" href="/public/apple-touch-icon.png" />
+        <link rel="icon" type="image/svg" href="/favicon.svg" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
       </head>
       <body>
         {children}
