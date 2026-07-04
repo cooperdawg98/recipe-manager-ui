@@ -18,7 +18,9 @@ export const CounterInputButton = ({
   };
 
   const endButton = (
-    <Button onClick={() => handlePress(changeAmount)}>{label}</Button>
+    <Button onClick={() => handlePress(changeAmount)} sx={{ width: "106px" }}>
+      {label}
+    </Button>
   );
 
   return (

@@ -17,9 +17,7 @@ const Counter = () => {
   return (
     <Stack justifyContent={"center"} padding={"16px"}>
       <Stack direction={"row"} justifyContent={"space-between"}>
-        <Typography fontSize="large" textColor={"primary.100"}>
-          Counter total: {count}
-        </Typography>
+        <Typography fontSize="large">Counter total: {count}</Typography>
         <Switch onChange={() => dispatch(toggleCounterType())} />
       </Stack>
       {counterType === "default" ? (
