@@ -1,4 +1,4 @@
-import { Button, Input } from "@mui/joy";
+import { Input } from "@mui/joy";
 import { useState, type ChangeEvent } from "react";
 
 type CounterInputButtonProps = {
@@ -18,12 +18,16 @@ export const CounterInputButton = ({
   };
 
   const endButton = (
-    <Button onClick={() => handlePress(changeAmount)} sx={{ width: "106px" }}>
+    <button
+      onClick={() => handlePress(changeAmount)}
+      className="w-26.5 flex justify-center bg-blue-700! text-white"
+    >
       {label}
-    </Button>
+    </button>
   );
 
   return (
+    // TODO: replace with base ui input
     <Input
       value={changeAmount}
       onChange={handleChange}

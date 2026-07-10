@@ -1,4 +1,3 @@
-import { Button, Stack, Switch, Typography } from "@mui/joy";
 import {
   decrement,
   decrementByAmount,
@@ -15,18 +14,34 @@ const Counter = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <Stack justifyContent={"center"} padding={"16px"}>
-      <Stack direction={"row"} justifyContent={"space-between"}>
-        <Typography fontSize="large">Counter total: {count}</Typography>
-        <Switch onChange={() => dispatch(toggleCounterType())} />
-      </Stack>
+    <div className="flex flex-col justify-center p-4 h-[160]">
+      <div className="flex flex-row justify-between h-full">
+        <span className="text-lg text-gray-600">Counter total: {count}</span>
+        {/* TODO: Replace this button with base ui switch */}
+        <button
+          onClick={() => dispatch(toggleCounterType())}
+          className="bg-sky-700!"
+        >
+          {counterType === "default" ? "<o-->" : "<--o>"}
+        </button>
+      </div>
       {counterType === "default" ? (
-        <Stack paddingTop={"16px"} gap={"8px"}>
-          <Button onClick={() => dispatch(increment())}>Increment</Button>
-          <Button onClick={() => dispatch(decrement())}>Decrement</Button>
-        </Stack>
+        <div className="flex flex-col pt-4 gap-2">
+          <button
+            onClick={() => dispatch(increment())}
+            className="bg-sky-700! text-white"
+          >
+            Increment
+          </button>
+          <button
+            onClick={() => dispatch(decrement())}
+            className="bg-sky-700! text-white"
+          >
+            Decrement
+          </button>
+        </div>
       ) : (
-        <Stack paddingTop={"16px"} gap={"8px"}>
+        <div className="pt-4 gap-2">
           <CounterInputButton
             label="Increment"
             handlePress={(changeValue) =>
@@ -39,9 +54,9 @@ const Counter = () => {
               dispatch(decrementByAmount(changeValue))
             }
           />
-        </Stack>
+        </div>
       )}
-    </Stack>
+    </div>
   );
 };
 

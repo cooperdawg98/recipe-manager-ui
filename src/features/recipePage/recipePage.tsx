@@ -1,25 +1,24 @@
-import { Box, Divider, Sheet, Stack, Typography } from "@mui/joy";
 import { NavLink } from "react-router";
 import Counter from "../counter/counter";
 
 const recipePage = () => {
-  console.log("Nav to recipe");
   return (
-    <Stack
-      width={"100%"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      height={"500px"}
-    >
-      <Sheet variant="soft">
-        <Box padding={3}>
-          <Typography typography={"h1"}>Test Recipe Page</Typography>
-          <NavLink to={"/"}>Go Home</NavLink>
-          <Divider />
+    <div className="flex w-full h-full justify-center items-center">
+      <div className="flex flex-col bg-amber-50 w-md h-80 rounded-sm">
+        <div className="p-3 divide-y divide-gray-600">
+          <div className="flex flex-col p-2 gap-2">
+            <h1 className="text-gray-600">Test Recipe Page</h1>
+            <NavLink
+              className="text-blue-400 hover:text-amber-600 p-1 border rounded-md w-40"
+              to={"/"}
+            >
+              Go Home
+            </NavLink>
+          </div>
           <Counter />
-        </Box>
-      </Sheet>
-    </Stack>
+        </div>
+      </div>
+    </div>
   );
 };
 

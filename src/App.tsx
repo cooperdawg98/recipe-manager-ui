@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
-import { Stack, Typography } from "@mui/joy";
 import { NavLink } from "react-router";
 import Counter from "./features/counter/counter";
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
 
+  // Example of fetching data from flask backend
   useEffect(() => {
     fetch("/api/time")
       .then((res) => res.json())
@@ -18,32 +18,63 @@ function App() {
   }, []);
 
   return (
-    <Stack
-      width={"100%"}
-      justifyContent={"center"}
-      alignItems={"center"}
-      height={"500px"}
-    >
-      <Stack direction={"row"} gap={"16px"}>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </Stack>
-      <Typography typography={"h1"} textColor={"primary.100"}>
-        Vite + React
-      </Typography>
-      <Stack className="card" justifyContent={"center"} padding={"8px"}>
-        <Counter />
-        <Typography typography={"h5"} textColor={"primary.100"}>
-          The current time is {new Date(currentTime * 1000).toLocaleString()}.
-        </Typography>
-      </Stack>
-      <NavLink to={"/recipe"}>Go to Recipe page</NavLink>
-      <NavLink to={"/recipes"}>Go to Recipe page 2</NavLink>
-    </Stack>
+    <div className="flex w-full h-125 justify-center items-center">
+      <div className="flex flex-col w-md h-125 justify-center items-center">
+        <div className="flex flex-row gap-4">
+          <a href="https://vite.dev" target="_blank">
+            <img src={viteLogo} className="logo" alt="Vite logo" />
+          </a>
+          <a href="https://react.dev" target="_blank">
+            <img src={reactLogo} className="logo react" alt="React logo" />
+          </a>
+        </div>
+        <h1 className="text-gray-600">Vite + React</h1>
+        <div className="flex flex-col w-full justify-center p-4">
+          <Counter />
+          <h5 className="text-gray-600">
+            The current time is {new Date(currentTime * 1000).toLocaleString()}.
+          </h5>
+        </div>
+        <NavLink
+          className="text-blue-400 hover:text-amber-600 p-1 border rounded-md w-40"
+          to={"/recipe"}
+        >
+          Go to Recipe page
+        </NavLink>
+        <NavLink
+          className="text-blue-400 hover:text-amber-600 p-1 border rounded-md w-40"
+          to={"/recipes"}
+        >
+          Go to Recipe page 2
+        </NavLink>
+      </div>
+    </div>
+    // <Stack
+    //   width={"100%"}
+    //   justifyContent={"center"}
+    //   alignItems={"center"}
+    //   height={"500px"}
+    // >
+    //   <Stack direction={"row"} gap={"16px"}>
+    //     <a href="https://vite.dev" target="_blank">
+    //       <img src={viteLogo} className="logo" alt="Vite logo" />
+    //     </a>
+    //     <a href="https://react.dev" target="_blank">
+    //       <img src={reactLogo} className="logo react" alt="React logo" />
+    //     </a>
+    //   </Stack>
+    //   <Typography typography={"h1"} textColor={"primary.100"}>
+    //     Vite + React
+    //   </Typography>
+    //   <Stack className="card" justifyContent={"center"} padding={"8px"}>
+    //     <Counter />
+    //     <Typography typography={"h5"} textColor={"primary.100"}>
+    //       The current time is {new Date(currentTime * 1000).toLocaleString()}.
+    //     </Typography>
+    //   </Stack>
+    //   <NavLink to={"/recipe"}>Go to Recipe page</NavLink>
+    //   <NavLink to={"/recipes"}>Go to Recipe page 2</NavLink>
+    // </Stack>
   );
 }
 
