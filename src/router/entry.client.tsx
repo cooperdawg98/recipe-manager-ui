@@ -18,7 +18,7 @@
 
 // import { hydrateRoot } from "react-dom/client";
 import ReactDOM from "react-dom/client";
-// import "../index.css";
+import "../index.css";
 import { Provider } from "react-redux";
 import { store } from "../app/store";
 import { HydratedRouter } from "react-router/dom";

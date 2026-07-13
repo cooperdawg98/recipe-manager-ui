@@ -1,5 +1,6 @@
-import { Input } from "@mui/joy";
 import { useState, type ChangeEvent } from "react";
+import InputWithButton from "../../components/InputWithButton";
+import { Button } from "@base-ui/react/button";
 
 type CounterInputButtonProps = {
   label: string;
@@ -18,20 +19,19 @@ export const CounterInputButton = ({
   };
 
   const endButton = (
-    <button
+    <Button
       onClick={() => handlePress(changeAmount)}
-      className="w-26.5 flex justify-center bg-blue-700! text-white"
+      className="w-26.5 flex justify-center bg-sky-700! text-white"
     >
       {label}
-    </button>
+    </Button>
   );
 
   return (
-    // TODO: replace with base ui input
-    <Input
+    <InputWithButton
+      endAdornmentButton={endButton}
       value={changeAmount}
       onChange={handleChange}
-      endDecorator={endButton}
     />
   );
 };

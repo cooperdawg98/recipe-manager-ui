@@ -7,6 +7,7 @@ import {
 } from "./counterSlice";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { CounterInputButton } from "./CounterInputButton";
+import GeneralSwitch from "../../components/GeneralSwitch";
 
 const Counter = () => {
   const count = useAppSelector((state) => state.counter.value);
@@ -17,13 +18,7 @@ const Counter = () => {
     <div className="flex flex-col justify-center p-4 h-[160]">
       <div className="flex flex-row justify-between h-full">
         <span className="text-lg text-gray-600">Counter total: {count}</span>
-        {/* TODO: Replace this button with base ui switch */}
-        <button
-          onClick={() => dispatch(toggleCounterType())}
-          className="bg-sky-700!"
-        >
-          {counterType === "default" ? "<o-->" : "<--o>"}
-        </button>
+        <GeneralSwitch onClick={() => dispatch(toggleCounterType())} />
       </div>
       {counterType === "default" ? (
         <div className="flex flex-col pt-4 gap-2">
