@@ -1,7 +1,13 @@
+import IngredientListItem from "../../components/recipe/IngredientListItem";
+import { ingredients } from "./mockRecipe";
+
 const recipePage = () => {
+  // TODO: Make this a slice variable
+  const scale = 2;
+
   return (
     <div className="flex flex-col w-full h-full justify-center items-center px-4">
-      <div id="header" className="flex flex-col w-full gap-4">
+      <div id="header" className="flex flex-col w-full gap-4 pb-4">
         <h1 id="title">Penne With Hot-as-You-Dare Arrabbiata Sauce Recipe</h1>
         <p>
           This simple pasta dish is made with a sauce that's spicy enough to
@@ -21,6 +27,14 @@ const recipePage = () => {
             alt="Overhead view of a black bowl of penne with arrabiata sauce."
           />
         </div>
+      </div>
+      <div id="ingredients" className="flex flex-col w-full gap-2">
+        <h2>Ingredients</h2>
+        <ul id="ingredients list" className="flex flex-col w-full gap-1">
+          {ingredients.map((i, idx) => (
+            <IngredientListItem key={idx} ingredient={i} scale={scale} />
+          ))}
+        </ul>
       </div>
     </div>
   );
