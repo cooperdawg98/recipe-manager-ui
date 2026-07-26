@@ -1,5 +1,6 @@
+import DirectionsListItem from "../../components/recipe/DirectionsListItem";
 import IngredientListItem from "../../components/recipe/IngredientListItem";
-import { ingredients } from "./mockRecipe";
+import { directions, ingredients } from "./mockRecipe";
 
 const recipePage = () => {
   // TODO: Make this a slice variable
@@ -19,6 +20,8 @@ const recipePage = () => {
             Landon Baker
           </span>
         </div>
+        {/* TODO: Add source display */}
+        {/* TODO: Add tags bar with links */}
         <div id="header image">
           <img
             width="1500"
@@ -28,6 +31,11 @@ const recipePage = () => {
           />
         </div>
       </div>
+      {/* TODO: Add highlights section */}
+      {/* TODO: Add notes section */}
+      {/* TODO: Add scaler input */}
+      {/* TODO: Make ingredients respect subheading and display order db values */}
+      {/* TODO: Apply ingredient subheadings */}
       <div id="ingredients" className="flex flex-col w-full gap-2">
         <h2>Ingredients</h2>
         <ul id="ingredients list" className="flex flex-col w-full gap-1">
@@ -36,6 +44,16 @@ const recipePage = () => {
           ))}
         </ul>
       </div>
+      <div className="flex flex-col w-full gap-2 pt-2">
+        <h2>Directions</h2>
+        <ol className="flex flex-col w-full gap-1">
+          {directions.map((i, idx) => (
+            <DirectionsListItem key={idx} directionStep={i} />
+          ))}
+        </ol>
+      </div>
+      {/* TODO: Apply directions images */}
+      {/* TODO: Apply comments */}
     </div>
   );
 };
