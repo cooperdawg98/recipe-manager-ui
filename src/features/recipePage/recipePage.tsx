@@ -1,27 +1,38 @@
 import CaptionedImage from "../../components/CaptionedImage";
 import DirectionsListItem from "../../components/recipe/DirectionsListItem";
 import IngredientListItem from "../../components/recipe/IngredientListItem";
-import { directions, headerImage, ingredients } from "./mockRecipe";
+import RecipeSourceItem from "../../components/recipe/RecipeSourceItem";
+import { SourceType } from "../../types/recipe/RecipeSource";
+import {
+  directions,
+  headerImage,
+  ingredients,
+  presenterField,
+  sourceField,
+} from "./mockRecipe";
 
 const recipePage = () => {
-  // TODO: Make this a slice variable
+  // TODO: Make scale a slice variable
   const scale = 2;
 
   return (
-    <div className="flex flex-col w-full h-full justify-center items-center px-4">
+    <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
         <h1 id="title">Penne With Hot-as-You-Dare Arrabbiata Sauce Recipe</h1>
         <p>
           This simple pasta dish is made with a sauce that's spicy enough to
           earn its "angry" moniker.
         </p>
-        <div id="presenter block" className="flex flex-row gap-1">
-          <span>Presented By</span>
-          <span className="text-verdigris-500 hover:text-verdigris-600 underline hover:decoration-2">
-            Landon Baker
-          </span>
+        <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
+          <RecipeSourceItem
+            source={presenterField}
+            sourceType={SourceType.Presenter}
+          />
+          <RecipeSourceItem
+            source={sourceField}
+            sourceType={SourceType.Origin}
+          />
         </div>
-        {/* TODO: Add source display */}
         {/* TODO: Add tags bar with links */}
         <div id="header image">
           <CaptionedImage width={1500} height={1125} image={headerImage} />

@@ -1,6 +1,16 @@
 import type { ImageType } from "../../types/ImageType";
 import type { Direction } from "../../types/recipe/Direction";
 import type { Ingredient } from "../../types/recipe/Ingredient";
+import type { RecipeSource } from "../../types/recipe/RecipeSource";
+
+export const presenterField: RecipeSource = {
+  label: "Landon Baker",
+};
+
+export const sourceField: RecipeSource = {
+  label: "Serious Eats",
+  url: "https://www.seriouseats.com/penne-pasta-arrabbiata-sauce-recipe",
+};
 
 export const headerImage: ImageType = {
   src: "https://www.seriouseats.com/thmb/PDh2rLFXAiYSNg9XclL406vf9M8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2016__03__20160211-pasta-arrabiata-vicky-wasik-011-c6de80337920468886b7d6a8c0323544.jpg",
