@@ -1,7 +1,7 @@
 import type { ImageType } from "../ImageType";
 
 export type Direction = {
-  recipeId: number;
+  recipeId: string;
   subheading: number;
   displayOrder: number;
   directionText: string;

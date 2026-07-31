@@ -1,15 +1,26 @@
 import type { ImageType } from "../../types/ImageType";
 import type { Direction } from "../../types/recipe/Direction";
 import type { Ingredient } from "../../types/recipe/Ingredient";
-import type { RecipeSource } from "../../types/recipe/RecipeSource";
+import type { RecipeEntry } from "../../types/recipe/RecipeEntry";
 
-export const presenterField: RecipeSource = {
-  label: "Landon Baker",
-};
-
-export const sourceField: RecipeSource = {
-  label: "Serious Eats",
-  url: "https://www.seriouseats.com/penne-pasta-arrabbiata-sauce-recipe",
+export const recipeEntry: RecipeEntry = {
+  recipeId: "1",
+  title: "Penne With Hot-as-You-Dare Arrabbiata Sauce Recipe",
+  source: {
+    label: "Serious Eats",
+    url: "https://www.seriouseats.com/",
+  },
+  submitter: {
+    label: "Landon Baker",
+  },
+  totalTime: 25,
+  prepTime: 5,
+  cookTime: 20,
+  serves: 4,
+  link: {
+    label: "Serious Eats",
+    url: "https://www.seriouseats.com/penne-pasta-arrabbiata-sauce-recipe",
+  },
 };
 
 export const headerImage: ImageType = {
@@ -20,13 +31,13 @@ export const headerImage: ImageType = {
 
 export const ingredients: Ingredient[] = [
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 1,
     label: "Kosher salt",
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 2,
     label: "penne pasta",
@@ -44,7 +55,7 @@ export const ingredients: Ingredient[] = [
     ],
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 3,
     label: "ground black pepper",
@@ -57,7 +68,7 @@ export const ingredients: Ingredient[] = [
     ],
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 4,
     label: "medium garlic glove",
@@ -72,14 +83,14 @@ export const ingredients: Ingredient[] = [
 
 export const directions: Direction[] = [
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 1,
     directionText:
       "In a medium saucepan of boiling salted water, cook penne until just short of al dente, about 1 minute less than the package recommends.",
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 2,
     directionText:
@@ -90,7 +101,7 @@ export const directions: Direction[] = [
     },
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 3,
     directionText:
@@ -101,7 +112,7 @@ export const directions: Direction[] = [
     },
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 4,
     directionText:
@@ -112,7 +123,7 @@ export const directions: Direction[] = [
     },
   },
   {
-    recipeId: 1,
+    recipeId: "1",
     subheading: 1,
     displayOrder: 5,
     directionText:

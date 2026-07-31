@@ -10,16 +10,18 @@ const IngredientListItem = ({ ingredient, scale }: IngredientListItemProps) => {
   const ingredientQuantities = ingredient.quantity ?? [];
 
   return (
-    <li id="ingredient list item" className="flex flex-row gap-1">
-      {ingredientQuantities.map((q, idx) => (
-        <IngredientListItemQuantity
-          key={idx}
-          ingredientQuantity={q}
-          scalerValue={scale}
-          isAlternate={idx > 0}
-        />
-      ))}
-      <span>{ingredient.label}</span>
+    <li id="ingredient list item">
+      <div className="inline-flex flex-row gap-1">
+        {ingredientQuantities.map((q, idx) => (
+          <IngredientListItemQuantity
+            key={idx}
+            ingredientQuantity={q}
+            scalerValue={scale}
+            isAlternate={idx > 0}
+          />
+        ))}
+        <span>{ingredient.label}</span>
+      </div>
     </li>
   );
 };

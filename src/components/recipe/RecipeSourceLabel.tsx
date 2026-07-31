@@ -1,12 +1,12 @@
 import { SourceType, type RecipeSource } from "../../types/recipe/RecipeSource";
 import ExternalLink from "../ExternalLink";
 
-type RecipeSourceItemProps = {
+type RecipeSourceLabelProps = {
   source: RecipeSource;
   sourceType: SourceType;
 };
 
-const RecipeSourceItem = ({ source, sourceType }: RecipeSourceItemProps) => {
+const RecipeSourceLabel = ({ source, sourceType }: RecipeSourceLabelProps) => {
   let label;
   switch (sourceType) {
     case SourceType.Presenter:
@@ -29,4 +29,4 @@ const RecipeSourceItem = ({ source, sourceType }: RecipeSourceItemProps) => {
   );
 };
 
-export default RecipeSourceItem;
+export default RecipeSourceLabel;

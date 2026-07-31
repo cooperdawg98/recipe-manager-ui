@@ -5,7 +5,7 @@ export type IngredientQuantity = {
 };
 
 export type Ingredient = {
-  recipeId: number;
+  recipeId: string;
   subheading: number;
   displayOrder: number;
   label: string;
