@@ -14,20 +14,18 @@ const IngredientListItemQuantity = ({
   scalerValue,
   isAlternate = false,
 }: IngredientListItemQuantityProps) => {
+  console.log("ingredient: ", ingredientQuantity.unit ?? "NONE");
   const quantity = useMemo(() => {
     /*TODO:
       Give numbers a style if being scaled
-      scale doesn't handle less than 1 or non-whole numbers
+      Scale for fractions only works for quarters (0.25, 0.5, 0.75)
       float vs fraction edge cases -> do we limit the fractions a user can enter? Or handle all cases?
     */
-    const numerator = ingredientQuantity.numerator * scalerValue;
-    const denominator = ingredientQuantity.denominator;
-
-    if (denominator === 1) {
-      return { formatted: `${numerator}`, numeric: numerator };
-    } else {
-      return improperToMixedFraction(numerator, denominator);
-    }
+    return improperToMixedFraction(
+      ingredientQuantity.numerator,
+      ingredientQuantity.denominator,
+      scalerValue
+    );
   }, [ingredientQuantity, scalerValue]);
 
   return (
