@@ -1,7 +1,9 @@
+import { useState } from "react";
 import CaptionedImage from "../../components/CaptionedImage";
 import DirectionsListItem from "../../components/recipe/DirectionsListItem";
 import IngredientListItem from "../../components/recipe/IngredientListItem";
 import RecipeSourceLabel from "../../components/recipe/RecipeSourceLabel";
+import ScaleControls from "../../components/recipe/ScaleControls";
 import TimeEstimateCard from "../../components/recipe/TimeEstimateCard";
 import { SourceType } from "../../types/recipe/RecipeSource";
 import {
@@ -12,8 +14,11 @@ import {
 } from "./mockRecipe";
 
 const recipePage = () => {
-  // TODO: Make scale a slice variable
-  const scale = 1;
+  const [scale, setScale] = useState(1);
+
+  const handleScaleChange = (newScaleValue: number) => {
+    setScale(newScaleValue);
+  };
 
   return (
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
@@ -47,6 +52,7 @@ const recipePage = () => {
       {/* TODO: Add highlights section */}
       {/* TODO: Add notes section */}
       {/* TODO: Add scaler input */}
+      <ScaleControls onScaleChange={handleScaleChange} />
       {/* TODO: Make ingredients respect subheading and display order db values */}
       {/* TODO: Apply ingredient subheading labels */}
       <div className="flex flex-col w-full gap-6 pt-6">
