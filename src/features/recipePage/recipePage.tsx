@@ -13,7 +13,7 @@ import {
 
 const recipePage = () => {
   // TODO: Make scale a slice variable
-  const scale = 2;
+  const scale = 1;
 
   return (
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
