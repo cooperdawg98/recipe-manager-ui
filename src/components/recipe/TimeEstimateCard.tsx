@@ -1,8 +1,11 @@
+import { getScaleColor } from "../../utils/getScaleColor";
+
 type TimeEstimateCardProps = {
   totalTime: number;
   prepTime: number;
   cookTime: number;
   serves: number;
+  scale: number;
 };
 
 const TimeEstimateCard = ({
@@ -10,7 +13,10 @@ const TimeEstimateCard = ({
   prepTime,
   cookTime,
   serves,
+  scale,
 }: TimeEstimateCardProps) => {
+  let ingredientColor = getScaleColor(scale);
+  if (scale !== 1) ingredientColor = ingredientColor + " font-semibold";
   const gridChildClass =
     "flex flex-col bg-mint-leaf-400 text-center rounded-md p-1 mx-2 my-1";
   return (
@@ -29,17 +35,11 @@ const TimeEstimateCard = ({
       </div>
       <div className={gridChildClass}>
         <span className="font-bold text-lg">Serves</span>
-        <span className="font-medium">{serves}</span>
+        <span className={"font-medium " + ingredientColor}>
+          {serves * scale}
+        </span>
       </div>
     </div>
-    // <div className="flex flex-col gap-1 items-center min-w-27.5">
-    //   <span className="font-medium">{label}</span>
-    //   <ExternalLink url={source.url ?? ""}>
-    //     <span className="text-verdigris-700 hover:text-verdigris-800 underline hover:decoration-2 hover:font-bold">
-    //       {source.label}
-    //     </span>
-    //   </ExternalLink>
-    // </div>
   );
 };
 

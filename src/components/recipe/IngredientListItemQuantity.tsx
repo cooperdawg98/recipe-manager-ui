@@ -2,16 +2,17 @@ import { useMemo } from "react";
 import type { IngredientQuantity } from "../../types/recipe/Ingredient";
 import { improperToMixedFraction } from "../../utils/improperToMixedFraction";
 import { canUnitBePlural } from "../../utils/canUnitBePlural";
+import { getScaleColor } from "../../utils/getScaleColor";
 
 type IngredientListItemQuantityProps = {
   ingredientQuantity: IngredientQuantity;
-  scalerValue: number;
+  scale: number;
   isAlternate?: boolean;
 };
 
 const IngredientListItemQuantity = ({
   ingredientQuantity,
-  scalerValue,
+  scale,
   isAlternate = false,
 }: IngredientListItemQuantityProps) => {
   console.log("ingredient: ", ingredientQuantity.unit ?? "NONE");
@@ -24,14 +25,20 @@ const IngredientListItemQuantity = ({
     return improperToMixedFraction(
       ingredientQuantity.numerator,
       ingredientQuantity.denominator,
-      scalerValue
+      scale
     );
-  }, [ingredientQuantity, scalerValue]);
+  }, [ingredientQuantity, scale]);
+
+  // Set ingredient label color and weight based on scale
+  let ingredientColor = getScaleColor(scale);
+  if (scale !== 1) ingredientColor = ingredientColor + " font-semibold";
 
   return (
     <div className="flex flex-row gap-1">
       {isAlternate && "("}
-      <span id="ingredient quantity">{quantity.formatted}</span>
+      <span id="ingredient quantity" className={ingredientColor}>
+        {quantity.formatted}
+      </span>
       {ingredientQuantity.unit && (
         <span id="ingredient unit">
           {ingredientQuantity.unit}

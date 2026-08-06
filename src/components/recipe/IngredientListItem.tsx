@@ -16,7 +16,7 @@ const IngredientListItem = ({ ingredient, scale }: IngredientListItemProps) => {
           <IngredientListItemQuantity
             key={idx}
             ingredientQuantity={q}
-            scalerValue={scale}
+            scale={scale}
             isAlternate={idx > 0}
           />
         ))}

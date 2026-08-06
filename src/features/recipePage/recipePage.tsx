@@ -48,6 +48,7 @@ const recipePage = () => {
         prepTime={recipeEntry.prepTime}
         cookTime={recipeEntry.cookTime}
         serves={recipeEntry.serves}
+        scale={scale}
       />
       {/* TODO: Add highlights section */}
       {/* TODO: Add notes section */}
