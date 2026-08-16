@@ -18,7 +18,7 @@ const RecipeSourceLabel = ({ source, sourceType }: RecipeSourceLabelProps) => {
   }
 
   return (
-    <div className="flex flex-col gap-1 items-center min-w-27.5">
+    <div className="flex flex-col items-center min-w-27.5">
       <span className="font-medium">{label}</span>
       <ExternalLink url={source.url ?? ""}>
         <span className="text-verdigris-700 hover:text-verdigris-800 underline hover:decoration-2 hover:font-bold">

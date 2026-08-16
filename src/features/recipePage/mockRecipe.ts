@@ -22,6 +22,8 @@ export const recipeEntry: RecipeEntry = {
     label: "Serious Eats",
     url: "https://www.seriouseats.com/penne-pasta-arrabbiata-sauce-recipe",
   },
+  addedDate: new Date("2026/8/11"),
+  updatedDate: new Date("2026/8/12"),
 };
 
 export const headerImage: ImageType = {

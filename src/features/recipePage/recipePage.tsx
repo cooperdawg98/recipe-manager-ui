@@ -15,6 +15,7 @@ import {
   notes,
   recipeEntry,
 } from "./mockRecipe";
+import DateLabel from "../../components/recipe/DateLabel";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
@@ -31,15 +32,21 @@ const recipePage = () => {
           This simple pasta dish is made with a sauce that's spicy enough to
           earn its "angry" moniker.
         </p>
-        <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
-          <RecipeSourceLabel
-            source={recipeEntry.submitter}
-            sourceType={SourceType.Presenter}
-          />
-          <RecipeSourceLabel
-            source={recipeEntry.link ?? recipeEntry.source}
-            sourceType={SourceType.Origin}
-          />
+        <div className="flex flex-col w-full gap-1">
+          <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
+            <RecipeSourceLabel
+              source={recipeEntry.submitter}
+              sourceType={SourceType.Presenter}
+            />
+            <RecipeSourceLabel
+              source={recipeEntry.link ?? recipeEntry.source}
+              sourceType={SourceType.Origin}
+            />
+          </div>
+          <div className="flex flex-row w-full justify-around bg-deep-saffron-200 rounded-md py-1">
+            <DateLabel date={recipeEntry.addedDate} label="Added" />
+            <DateLabel date={recipeEntry.updatedDate} label="Last Updated" />
+          </div>
         </div>
         {/* TODO: Add tags bar with links */}
         <div id="header image">
