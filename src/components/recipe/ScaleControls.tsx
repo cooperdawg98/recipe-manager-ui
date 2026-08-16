@@ -34,7 +34,7 @@ const ScaleControls = ({ onScaleChange }: ScaleControlsProps) => {
       value={index}
       onValueChange={handleChange}
       defaultValue={2}
-      enableValueLabel
+      // enableValueLabel
       handleValuesLabel={handleValuesLabel}
       // trackProps={{ render: <SliderTrackTicks /> }}
     />
