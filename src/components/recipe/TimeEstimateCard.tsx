@@ -18,9 +18,9 @@ const TimeEstimateCard = ({
   let ingredientColor = getScaleColor(scale);
   if (scale !== 1) ingredientColor = ingredientColor + " font-semibold";
   const gridChildClass =
-    "flex flex-col bg-mint-leaf-400 text-center rounded-md p-1 mx-2 my-1";
+    "flex flex-col bg-mint-leaf-300 text-center rounded-md p-1 mx-2 my-1";
   return (
-    <div className="grid grid-cols-2 w-full justify-around bg-mint-leaf-300 rounded-md py-2 max-w-100">
+    <div className="grid grid-cols-2 w-full justify-around bg-mint-leaf-200 rounded-md py-2 max-w-100">
       <div className={gridChildClass}>
         <span className="font-bold text-lg">Prep Time</span>
         <span className="font-medium">{prepTime}</span>

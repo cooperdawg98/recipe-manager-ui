@@ -1,4 +1,5 @@
 import type { ImageType } from "../../types/ImageType";
+import type { BulletedInfo } from "../../types/recipe/BulletedInfo";
 import type { Direction } from "../../types/recipe/Direction";
 import type { Ingredient } from "../../types/recipe/Ingredient";
 import type { RecipeEntry } from "../../types/recipe/RecipeEntry";
@@ -28,6 +29,17 @@ export const headerImage: ImageType = {
   caption: "Credit Serious Eats / Vicky Wasik",
   alt: "Overhead view of a black bowl of penne with arrabiata sauce.",
 };
+
+export const highlights: BulletedInfo[] = [
+  {
+    recipeId: "1",
+    value: "Finishing the pasta in the sauce coats every piece perfectly.",
+  },
+  {
+    recipeId: "1",
+    value: "Adding pasta water to the sauce helps emulsify it.",
+  },
+];
 
 export const ingredients: Ingredient[] = [
   {
@@ -130,3 +142,10 @@ export const directions: Direction[] = [
       "Continue cooking pasta until sauce thickens and begins to coat noodles, then remove from heat and toss in cheese and parsley, stirring vigorously to incorporate. Stir in a drizzle of fresh olive oil, if desired. Season with salt and serve right away, passing more cheese at the table.",
   },
 ];
+
+export const notes: BulletedInfo = {
+  recipeId: "1",
+  value: `The red pepper flakes are what makes this dish "angry," but exactly how angry you want it to be is a personal choice. It's also important to note that different red pepper flakes have different levels of heat. Add as much, or as little, as you feel comfortable with. Feel free to substitute minced fresh red chiles instead of dried, if desired.
+
+When tomatoes are in peak season, you can switch from canned to fresh, using an equal quantity of diced fresh ripe tomatoes (cook just until they soften and begin to break down) or either raw tomato coulis, quick-cooked tomato coulis, or the best fresh tomato sauce.`,
+};

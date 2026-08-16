@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CaptionedImage from "../../components/CaptionedImage";
 import DirectionsListItem from "../../components/recipe/DirectionsListItem";
+import Highlights from "../../components/recipe/Highlights";
 import IngredientListItem from "../../components/recipe/IngredientListItem";
 import RecipeSourceLabel from "../../components/recipe/RecipeSourceLabel";
 import ScaleControls from "../../components/recipe/ScaleControls";
@@ -9,7 +10,9 @@ import { SourceType } from "../../types/recipe/RecipeSource";
 import {
   directions,
   headerImage,
+  highlights,
   ingredients,
+  notes,
   recipeEntry,
 } from "./mockRecipe";
 
@@ -43,17 +46,18 @@ const recipePage = () => {
           <CaptionedImage width={1500} height={1125} image={headerImage} />
         </div>
       </div>
-      <TimeEstimateCard
-        totalTime={recipeEntry.totalTime}
-        prepTime={recipeEntry.prepTime}
-        cookTime={recipeEntry.cookTime}
-        serves={recipeEntry.serves}
-        scale={scale}
-      />
-      {/* TODO: Add highlights section */}
-      {/* TODO: Add notes section */}
-      {/* TODO: Add scaler input */}
-      <ScaleControls onScaleChange={handleScaleChange} />
+      <div id="top options" className="flex flex-col gap-2 py-2 items-center">
+        <Highlights highlights={highlights} />
+        <TimeEstimateCard
+          totalTime={recipeEntry.totalTime}
+          prepTime={recipeEntry.prepTime}
+          cookTime={recipeEntry.cookTime}
+          serves={recipeEntry.serves}
+          scale={scale}
+        />
+        {/* TODO: Hide scaler input */}
+        <ScaleControls onScaleChange={handleScaleChange} />
+      </div>
       {/* TODO: Make ingredients respect subheading and display order db values */}
       {/* TODO: Apply ingredient subheading labels */}
       <div className="flex flex-col w-full gap-6 pt-6">
@@ -79,6 +83,10 @@ const recipePage = () => {
               <DirectionsListItem key={idx} directionStep={i} />
             ))}
           </ol>
+        </div>
+        <div className="flex flex-col bg-mint-leaf-200 rounded-md p-4 gap-2">
+          <h2>Notes</h2>
+          <p className="whitespace-pre-line">{notes.value}</p>
         </div>
       </div>
       {/* TODO: Apply comments */}
