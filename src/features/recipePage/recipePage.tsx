@@ -7,59 +7,66 @@ import RecipeSourceLabel from "../../components/recipe/RecipeSourceLabel";
 import ScaleControls from "../../components/recipe/ScaleControls";
 import TimeEstimateCard from "../../components/recipe/TimeEstimateCard";
 import { SourceType } from "../../types/recipe/RecipeSource";
-import {
-  directions,
-  headerImage,
-  highlights,
-  ingredients,
-  notes,
-  recipeEntry,
-} from "./mockRecipe";
 import DateLabel from "../../components/recipe/DateLabel";
+import { useGetRecipeQuery } from "../../api/recipeApi";
+import { mockRecipe } from "./mockRecipe";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
+
+  const { data: recipeData } = useGetRecipeQuery("halal-cart-chicken");
+  console.log(recipeData);
+  const recipe = recipeData ?? mockRecipe;
 
   const handleScaleChange = (newScaleValue: number) => {
     setScale(newScaleValue);
   };
 
+  // Add fallback skeleton when data is loading
   return (
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
-        <h1 id="title">{recipeEntry.title}</h1>
-        <p>
+        <h1 id="title">{recipe.recipeInfo.title}</h1>
+        {/* <p>
           This simple pasta dish is made with a sauce that's spicy enough to
           earn its "angry" moniker.
-        </p>
+        </p> */}
         <div className="flex flex-col w-full gap-1">
           <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
             <RecipeSourceLabel
-              source={recipeEntry.submitter}
+              source={recipe.recipeInfo.submitter}
               sourceType={SourceType.Presenter}
             />
             <RecipeSourceLabel
-              source={recipeEntry.link ?? recipeEntry.source}
+              source={recipe.recipeInfo.link ?? recipe.recipeInfo.source}
               sourceType={SourceType.Origin}
             />
           </div>
           <div className="flex flex-row w-full justify-around bg-deep-saffron-200 rounded-md py-1">
-            <DateLabel date={recipeEntry.addedDate} label="Added" />
-            <DateLabel date={recipeEntry.updatedDate} label="Last Updated" />
+            {/* TODO: Fix formatting bug caused by request (and convert to local time zone) */}
+            <DateLabel date={recipe.recipeInfo.addedDate} label="Added" />
+            <DateLabel
+              date={recipe.recipeInfo.updatedDate}
+              label="Last Updated"
+            />
           </div>
         </div>
         {/* TODO: Add tags bar with links */}
         <div id="header image">
-          <CaptionedImage width={1500} height={1125} image={headerImage} />
+          <CaptionedImage
+            width={1500}
+            height={1125}
+            image={recipe.headerImage}
+          />
         </div>
       </div>
       <div id="top options" className="flex flex-col gap-2 py-2 items-center">
-        <Highlights highlights={highlights} />
+        <Highlights highlights={recipe.highlights} />
         <TimeEstimateCard
-          totalTime={recipeEntry.totalTime}
-          prepTime={recipeEntry.prepTime}
-          cookTime={recipeEntry.cookTime}
-          serves={recipeEntry.serves}
+          totalTime={recipe.recipeInfo.totalTime}
+          prepTime={recipe.recipeInfo.prepTime}
+          cookTime={recipe.recipeInfo.cookTime}
+          serves={recipe.recipeInfo.serves}
           scale={scale}
         />
         {/* TODO: Hide scaler input */}
@@ -76,7 +83,7 @@ const recipePage = () => {
             id="ingredients list"
             className="list-disc list-inside space-y-1 marker:text-verdigris-800 marker:text-xl"
           >
-            {ingredients.map((i, idx) => (
+            {recipe.ingredients.map((i, idx) => (
               <IngredientListItem key={idx} ingredient={i} scale={scale} />
             ))}
           </ul>
@@ -86,14 +93,14 @@ const recipePage = () => {
             <h2>Directions</h2>
           </div>
           <ol className="flex flex-col w-full gap-1">
-            {directions.map((i, idx) => (
+            {recipe.directions.map((i, idx) => (
               <DirectionsListItem key={idx} directionStep={i} />
             ))}
           </ol>
         </div>
         <div className="flex flex-col bg-mint-leaf-200 rounded-md p-4 gap-2">
           <h2>Notes</h2>
-          <p className="whitespace-pre-line">{notes.value}</p>
+          <p className="whitespace-pre-line">{recipe.notes.value}</p>
         </div>
       </div>
       {/* TODO: Apply comments */}

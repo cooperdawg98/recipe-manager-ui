@@ -14,12 +14,6 @@ const DateLabel = ({ date, label }: DateLabelProps) => {
           day: "numeric",
         })}
       </span>
-      {/* <span className="text-verdigris-700 hover:text-verdigris-800">
-        {date.toLocaleString("default", {
-          month: "long",
-        })}{" "}
-        {date.getDate()}, {date.getFullYear()}
-      </span> */}
     </div>
   );
 };

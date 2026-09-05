@@ -2,9 +2,10 @@ import type { ImageType } from "../../types/ImageType";
 import type { BulletedInfo } from "../../types/recipe/BulletedInfo";
 import type { Direction } from "../../types/recipe/Direction";
 import type { Ingredient } from "../../types/recipe/Ingredient";
-import type { RecipeEntry } from "../../types/recipe/RecipeEntry";
+import type { Recipe } from "../../types/recipe/Recipe";
+import type { RecipeInfo } from "../../types/recipe/RecipeInfo";
 
-export const recipeEntry: RecipeEntry = {
+export const recipeInfo: RecipeInfo = {
   recipeId: "1",
   title: "Penne With Hot-as-You-Dare Arrabbiata Sauce Recipe",
   source: {
@@ -150,4 +151,13 @@ export const notes: BulletedInfo = {
   value: `The red pepper flakes are what makes this dish "angry," but exactly how angry you want it to be is a personal choice. It's also important to note that different red pepper flakes have different levels of heat. Add as much, or as little, as you feel comfortable with. Feel free to substitute minced fresh red chiles instead of dried, if desired.
 
 When tomatoes are in peak season, you can switch from canned to fresh, using an equal quantity of diced fresh ripe tomatoes (cook just until they soften and begin to break down) or either raw tomato coulis, quick-cooked tomato coulis, or the best fresh tomato sauce.`,
+};
+
+export const mockRecipe: Recipe = {
+  recipeInfo: recipeInfo,
+  headerImage: headerImage,
+  highlights: highlights,
+  notes: notes,
+  ingredients: ingredients,
+  directions: directions,
 };
