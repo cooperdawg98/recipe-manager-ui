@@ -15,7 +15,6 @@ const IngredientListItemQuantity = ({
   scale,
   isAlternate = false,
 }: IngredientListItemQuantityProps) => {
-  console.log("ingredient: ", ingredientQuantity.unit ?? "NONE");
   const quantity = useMemo(() => {
     /*TODO:
       Give numbers a style if being scaled
@@ -31,7 +30,7 @@ const IngredientListItemQuantity = ({
 
   // Set ingredient label color and weight based on scale
   let ingredientColor = getScaleColor(scale);
-  if (scale !== 1) ingredientColor = ingredientColor + " font-semibold";
+  if (scale !== 1) ingredientColor = ingredientColor; // + " font-semibold";
 
   return (
     <div className="flex flex-row gap-1">

@@ -10,6 +10,6 @@ export type RecipeInfo = {
   cookTime: number; // minutes
   serves: number;
   link?: RecipeSource; // Direct link
-  addedDate: Date; // TODO: Receive date as string type from json and convert it to Date type in separate step to avoid typescript runtime errors
+  addedDate: Date;
   updatedDate: Date;
 };

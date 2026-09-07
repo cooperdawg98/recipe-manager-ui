@@ -25,16 +25,13 @@ export const improperToMixedFraction = (
   const remainder = numerator % denominator;
 
   if (remainder === 0) {
-    console.log("whole number");
     return { formatted: `${wholeNumber}`, numeric: fractionalNumber }; // whole number
   } else if (wholeNumber === 0) {
-    console.log("proper fraction");
     return {
       formatted: `${remainder}/${denominator}`,
       numeric: fractionalNumber,
     }; // Already a proper fraction
   } else {
-    console.log("mixed number");
     return {
       formatted: `${wholeNumber} ${remainder}/${denominator}`,
       numeric: fractionalNumber,

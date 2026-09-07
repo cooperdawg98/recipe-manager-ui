@@ -8,21 +8,20 @@ import ScaleControls from "../../components/recipe/ScaleControls";
 import TimeEstimateCard from "../../components/recipe/TimeEstimateCard";
 import { SourceType } from "../../types/recipe/RecipeSource";
 import DateLabel from "../../components/recipe/DateLabel";
-import { useGetRecipeQuery } from "../../api/recipeApi";
+import { useGetRecipePageQuery } from "../../api/recipeApi";
 import { mockRecipe } from "./mockRecipe";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
 
-  const { data: recipeData } = useGetRecipeQuery("halal-cart-chicken");
-  console.log(recipeData);
+  const { data: recipeData } = useGetRecipePageQuery("halal-cart-chicken");
   const recipe = recipeData ?? mockRecipe;
 
   const handleScaleChange = (newScaleValue: number) => {
     setScale(newScaleValue);
   };
 
-  // Add fallback skeleton when data is loading
+  // TODO: Add fallback skeleton when data is loading
   return (
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
@@ -43,7 +42,6 @@ const recipePage = () => {
             />
           </div>
           <div className="flex flex-row w-full justify-around bg-deep-saffron-200 rounded-md py-1">
-            {/* TODO: Fix formatting bug caused by request (and convert to local time zone) */}
             <DateLabel date={recipe.recipeInfo.addedDate} label="Added" />
             <DateLabel
               date={recipe.recipeInfo.updatedDate}
