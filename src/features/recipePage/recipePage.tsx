@@ -26,10 +26,7 @@ const recipePage = () => {
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
         <h1 id="title">{recipe.recipeInfo.title}</h1>
-        {/* <p>
-          This simple pasta dish is made with a sauce that's spicy enough to
-          earn its "angry" moniker.
-        </p> */}
+        <p>{recipe.recipeInfo.zinger}</p>
         <div className="flex flex-col w-full gap-1">
           <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
             <RecipeSourceLabel

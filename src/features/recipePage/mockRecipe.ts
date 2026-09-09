@@ -8,6 +8,8 @@ import type { RecipeInfo } from "../../types/recipe/RecipeInfo";
 export const recipeInfo: RecipeInfo = {
   recipeId: "1",
   title: "Penne With Hot-as-You-Dare Arrabbiata Sauce Recipe",
+  zinger:
+    "This simple pasta dish is made with a sauce that's spicy enough to earn its 'angry' moniker.",
   source: {
     label: "Serious Eats",
     url: "https://www.seriouseats.com/",

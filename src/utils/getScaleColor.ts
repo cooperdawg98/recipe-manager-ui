@@ -2,6 +2,7 @@ export function getScaleColor(scale: number) {
   let ingredientColor;
   switch (scale) {
     case 0.25:
+      // COLOR
       ingredientColor = "text-shadow-md/50 text-shadow-orange-300";
       break;
     case 0.5:

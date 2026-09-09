@@ -16,11 +16,6 @@ const IngredientListItemQuantity = ({
   isAlternate = false,
 }: IngredientListItemQuantityProps) => {
   const quantity = useMemo(() => {
-    /*TODO:
-      Give numbers a style if being scaled
-      Scale for fractions only works for quarters (0.25, 0.5, 0.75)
-      float vs fraction edge cases -> do we limit the fractions a user can enter? Or handle all cases?
-    */
     return improperToMixedFraction(
       ingredientQuantity.numerator,
       ingredientQuantity.denominator,
