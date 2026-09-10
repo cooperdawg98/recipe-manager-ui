@@ -10,6 +10,7 @@ import { SourceType } from "../../types/recipe/RecipeSource";
 import DateLabel from "../../components/recipe/DateLabel";
 import { useGetRecipePageQuery } from "../../api/recipeApi";
 import { mockRecipe } from "./mockRecipe";
+import CollapsibleParagraph from "../../components/CollapsibleParagraph";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
@@ -26,7 +27,7 @@ const recipePage = () => {
     <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
         <h1 id="title">{recipe.recipeInfo.title}</h1>
-        <p>{recipe.recipeInfo.zinger}</p>
+        <CollapsibleParagraph value={recipe.recipeInfo.zinger ?? ""} />
         <div className="flex flex-col w-full gap-1">
           <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
             <RecipeSourceLabel
