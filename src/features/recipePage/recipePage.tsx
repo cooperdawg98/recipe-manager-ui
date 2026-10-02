@@ -11,6 +11,7 @@ import DateLabel from "../../components/recipe/DateLabel";
 import { useGetRecipePageQuery } from "../../api/recipeApi";
 import { mockRecipe } from "./mockRecipe";
 import CollapsibleParagraph from "../../components/CollapsibleParagraph";
+import TagContainer from "../../components/recipe/TagContainer";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
@@ -24,7 +25,7 @@ const recipePage = () => {
 
   // TODO: Add fallback skeleton when data is loading
   return (
-    <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4">
+    <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4 pb-20">
       <div id="header" className="flex flex-col w-full gap-4 pb-4">
         <h1 id="title">{recipe.recipeInfo.title}</h1>
         <CollapsibleParagraph value={recipe.recipeInfo.zinger ?? ""} />
@@ -98,6 +99,8 @@ const recipePage = () => {
           <h2>Notes</h2>
           <p className="whitespace-pre-line">{recipe.notes.value}</p>
         </div>
+        {/* TODO: Connect tags to incoming recipe data */}
+        <TagContainer tags={mockRecipe.tags ?? []} />
       </div>
       {/* TODO: Apply comments */}
     </div>

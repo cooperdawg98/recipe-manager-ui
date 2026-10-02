@@ -4,6 +4,7 @@ import type { Direction } from "../../types/recipe/Direction";
 import type { Ingredient } from "../../types/recipe/Ingredient";
 import type { Recipe } from "../../types/recipe/Recipe";
 import type { RecipeInfo } from "../../types/recipe/RecipeInfo";
+import type { RecipeTag } from "../../types/recipe/RecipeTag";
 
 export const recipeInfo: RecipeInfo = {
   recipeId: "1",
@@ -155,6 +156,21 @@ export const notes: BulletedInfo = {
 When tomatoes are in peak season, you can switch from canned to fresh, using an equal quantity of diced fresh ripe tomatoes (cook just until they soften and begin to break down) or either raw tomato coulis, quick-cooked tomato coulis, or the best fresh tomato sauce.`,
 };
 
+export const tags: RecipeTag[] = [
+  {
+    label: "chicken",
+    link: "https://forum.chickeninvaders.com/uploads/db1091/9386deb4542027982dbca4147dcff184c93aa46e",
+  },
+  { label: "cheesy" },
+  { label: "pasta" },
+  { label: "spicy" },
+  { label: "Traditional Italian" },
+  { label: "airfryer" },
+  { label: "popular" },
+  { label: "Landon" },
+  { label: "goes great with coke" },
+];
+
 export const mockRecipe: Recipe = {
   recipeInfo: recipeInfo,
   headerImage: headerImage,
@@ -162,4 +178,6 @@ export const mockRecipe: Recipe = {
   notes: notes,
   ingredients: ingredients,
   directions: directions,
+  // tags: tags,
+  tags: [],
 };
