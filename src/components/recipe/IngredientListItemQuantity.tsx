@@ -28,9 +28,9 @@ const IngredientListItemQuantity = ({
   if (scale !== 1) ingredientColor = ingredientColor; // + " font-semibold";
 
   return (
-    <div className="flex flex-row gap-1">
+    <div className="flex flex-row">
       {isAlternate && "("}
-      <span id="ingredient quantity" className={ingredientColor}>
+      <span id="ingredient quantity" className={ingredientColor + " pr-1"}>
         {quantity.formatted}
       </span>
       {ingredientQuantity.unit && (

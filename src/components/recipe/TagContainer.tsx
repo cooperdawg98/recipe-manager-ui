@@ -11,8 +11,8 @@ const TagContainer = ({ tags }: TagContainerProps) => {
       {tags.length ? (
         <div className="flex flex-wrap gap-x-2 gap-y-1 max-w-100">
           <span className="px-2 text-lg font-semibold">Explore more:</span>
-          {tags.map((t) => (
-            <TagItem label={t.label} link={t.link} />
+          {tags.map((t, idx) => (
+            <TagItem key={idx} label={t.label} link={t.link} />
           ))}
         </div>
       ) : (

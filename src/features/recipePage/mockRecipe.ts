@@ -5,6 +5,7 @@ import type { Ingredient } from "../../types/recipe/Ingredient";
 import type { Recipe } from "../../types/recipe/Recipe";
 import type { RecipeInfo } from "../../types/recipe/RecipeInfo";
 import type { RecipeTag } from "../../types/recipe/RecipeTag";
+import type { Subheading } from "../../types/recipe/Subheading";
 
 export const recipeInfo: RecipeInfo = {
   recipeId: "1",
@@ -44,6 +45,17 @@ export const highlights: BulletedInfo[] = [
   {
     recipeId: "1",
     value: "Adding pasta water to the sauce helps emulsify it.",
+  },
+];
+
+export const subheadings: Subheading[] = [
+  {
+    id: 1,
+    label: "For dish",
+  },
+  {
+    id: 2,
+    label: "For serving",
   },
 ];
 
@@ -176,6 +188,7 @@ export const mockRecipe: Recipe = {
   headerImage: headerImage,
   highlights: highlights,
   notes: notes,
+  subheadings: subheadings,
   ingredients: ingredients,
   directions: directions,
   tags: tags,

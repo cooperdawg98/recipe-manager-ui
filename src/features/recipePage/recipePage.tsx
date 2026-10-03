@@ -2,7 +2,6 @@ import { useState } from "react";
 import CaptionedImage from "../../components/CaptionedImage";
 import DirectionsListItem from "../../components/recipe/DirectionsListItem";
 import Highlights from "../../components/recipe/Highlights";
-import IngredientListItem from "../../components/recipe/IngredientListItem";
 import RecipeSourceLabel from "../../components/recipe/RecipeSourceLabel";
 import ScaleControls from "../../components/recipe/ScaleControls";
 import TimeEstimateCard from "../../components/recipe/TimeEstimateCard";
@@ -12,6 +11,7 @@ import { useGetRecipePageQuery } from "../../api/recipeApi";
 import { mockRecipe } from "./mockRecipe";
 import CollapsibleParagraph from "../../components/CollapsibleParagraph";
 import TagContainer from "../../components/recipe/TagContainer";
+import IngredientContainer from "../../components/recipe/IngredientContainer";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
@@ -48,7 +48,6 @@ const recipePage = () => {
             />
           </div>
         </div>
-        {/* TODO: Add tags bar with links */}
         <div id="header image">
           <CaptionedImage
             width={1500}
@@ -69,22 +68,13 @@ const recipePage = () => {
         {/* TODO: Hide scaler input */}
         <ScaleControls onScaleChange={handleScaleChange} />
       </div>
-      {/* TODO: Make ingredients respect subheading and display order db values */}
-      {/* TODO: Apply ingredient subheading labels */}
+      {/* TODO: Make ingredients respect display order */}
       <div className="flex flex-col w-full gap-6 pt-6">
-        <div id="ingredients" className="flex flex-col w-full gap-2">
-          <div className="bg-verdigris-200 rounded-md w-1/2 pl-2 border-l-4 border-verdigris-500">
-            <h2>Ingredients</h2>
-          </div>
-          <ul
-            id="ingredients list"
-            className="list-disc list-inside space-y-1 marker:text-verdigris-800 marker:text-xl"
-          >
-            {recipe.ingredients.map((i, idx) => (
-              <IngredientListItem key={idx} ingredient={i} scale={scale} />
-            ))}
-          </ul>
-        </div>
+        <IngredientContainer
+          ingredients={recipe.ingredients}
+          subheadings={recipe.subheadings}
+          scale={scale}
+        />
         <div className="flex flex-col w-full gap-2">
           <div className="bg-verdigris-200 rounded-md w-3/4 pl-2 border-l-4 border-verdigris-500">
             <h2>Directions</h2>
@@ -99,7 +89,6 @@ const recipePage = () => {
           <h2>Notes</h2>
           <p className="whitespace-pre-line">{recipe.notes.value}</p>
         </div>
-        {/* TODO: Connect tags to incoming recipe data */}
         <TagContainer tags={recipe.tags ?? []} />
       </div>
       {/* TODO: Apply comments */}

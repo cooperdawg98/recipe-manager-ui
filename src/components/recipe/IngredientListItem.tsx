@@ -9,6 +9,8 @@ type IngredientListItemProps = {
 const IngredientListItem = ({ ingredient, scale }: IngredientListItemProps) => {
   const ingredientQuantities = ingredient.quantity ?? [];
 
+  // BUG: Long ingredient quantities don't wrap correctly
+  // TODO: Capitalize first character of ingredient label if has no quantity
   return (
     <li id="ingredient list item">
       <div className="inline-flex flex-row gap-1">
