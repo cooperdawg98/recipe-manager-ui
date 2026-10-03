@@ -100,7 +100,7 @@ const recipePage = () => {
           <p className="whitespace-pre-line">{recipe.notes.value}</p>
         </div>
         {/* TODO: Connect tags to incoming recipe data */}
-        <TagContainer tags={mockRecipe.tags ?? []} />
+        <TagContainer tags={recipe.tags ?? []} />
       </div>
       {/* TODO: Apply comments */}
     </div>

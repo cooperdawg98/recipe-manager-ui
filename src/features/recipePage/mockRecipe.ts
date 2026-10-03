@@ -178,6 +178,5 @@ export const mockRecipe: Recipe = {
   notes: notes,
   ingredients: ingredients,
   directions: directions,
-  // tags: tags,
-  tags: [],
+  tags: tags,
 };
