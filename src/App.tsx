@@ -43,7 +43,7 @@ function App() {
         </p>
         <NavLink
           className="text-blue-400 hover:text-amber-600 p-1 mb-3 border rounded-md w-50"
-          to={"/recipe"}
+          to={"/recipe/test-recipe"}
         >
           Go to WIP Recipe page
         </NavLink>

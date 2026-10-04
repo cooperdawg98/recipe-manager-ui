@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 
 const CatchAll = () => {
   return (
-    <div className="flex w-full h-full justify-center items-center">
+    <div className="flex w-full h-full justify-center items-center bg-amber-50">
       <div className="flex flex-col bg-amber-50 w-md h-40 rounded-sm items-center">
         <div className="flex flex-col p-2 justify-between h-full">
           <h1 className="text-gray-600">Page Not Found</h1>

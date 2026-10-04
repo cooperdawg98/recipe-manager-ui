@@ -12,12 +12,14 @@ import CollapsibleParagraph from "../../components/CollapsibleParagraph";
 import TagContainer from "../../components/recipe/TagContainer";
 import IngredientContainer from "../../components/recipe/IngredientContainer";
 import { useGetRecipePageQueryFormatted } from "../../api/hooks/useGetRecipePageQueryFormatted";
+import { useParams } from "react-router";
 
 const recipePage = () => {
+  const { recipeId } = useParams();
   const [scale, setScale] = useState(1);
 
-  // const { data: recipeData } = useGetRecipePageQuery("halal-cart-chicken");
-  const recipeData = useGetRecipePageQueryFormatted("halal-cart-chicken");
+  // TODO: Add a "recipe not found" mode if recipe comes back empty
+  const recipeData = useGetRecipePageQueryFormatted(recipeId ?? "");
   const recipe = recipeData ?? mockRecipe;
 
   const handleScaleChange = (newScaleValue: number) => {
