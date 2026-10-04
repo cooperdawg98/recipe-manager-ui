@@ -7,16 +7,17 @@ import ScaleControls from "../../components/recipe/ScaleControls";
 import TimeEstimateCard from "../../components/recipe/TimeEstimateCard";
 import { SourceType } from "../../types/recipe/RecipeSource";
 import DateLabel from "../../components/recipe/DateLabel";
-import { useGetRecipePageQuery } from "../../api/recipeApi";
 import { mockRecipe } from "./mockRecipe";
 import CollapsibleParagraph from "../../components/CollapsibleParagraph";
 import TagContainer from "../../components/recipe/TagContainer";
 import IngredientContainer from "../../components/recipe/IngredientContainer";
+import { useGetRecipePageQueryFormatted } from "../../api/hooks/useGetRecipePageQueryFormatted";
 
 const recipePage = () => {
   const [scale, setScale] = useState(1);
 
-  const { data: recipeData } = useGetRecipePageQuery("halal-cart-chicken");
+  // const { data: recipeData } = useGetRecipePageQuery("halal-cart-chicken");
+  const recipeData = useGetRecipePageQueryFormatted("halal-cart-chicken");
   const recipe = recipeData ?? mockRecipe;
 
   const handleScaleChange = (newScaleValue: number) => {
