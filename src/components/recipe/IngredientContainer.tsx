@@ -47,24 +47,34 @@ const IngredientContainer = ({
         id="ingredients list"
         className="list-disc list-inside space-y-1 marker:text-verdigris-800 marker:text-xl"
       >
-        {subheadingIds.map((subheadingId) => (
-          <div key={subheadingId} className="space-y-1">
-            {subheadings.some((s) => s.id === subheadingId) && (
-              <span className="pt-2 text-xl font-semibold">
-                {subheadings.find((s) => s.id === subheadingId)?.label}
-              </span>
-            )}
-            {ingredientsBySubheading[subheadingId - 1]?.map((i, idx) => (
+        {subheadingIds.length === 0 ? (
+          <>
+            {ingredients.map((i, idx) => (
               <IngredientListItem key={idx} ingredient={i} scale={scale} />
             ))}
-          </div>
-        ))}
-        {ingredientsBySubheading.length > maximumSubheading && (
-          <span className="pt-2 text-xl font-semibold">Misc</span>
+          </>
+        ) : (
+          <>
+            {subheadingIds.map((subheadingId) => (
+              <div key={subheadingId} className="space-y-1">
+                {subheadings.some((s) => s.id === subheadingId) && (
+                  <span className="pt-2 text-xl font-semibold">
+                    {subheadings.find((s) => s.id === subheadingId)?.label}
+                  </span>
+                )}
+                {ingredientsBySubheading[subheadingId - 1]?.map((i, idx) => (
+                  <IngredientListItem key={idx} ingredient={i} scale={scale} />
+                ))}
+              </div>
+            ))}
+            {ingredientsBySubheading.length > maximumSubheading && (
+              <span className="pt-2 text-xl font-semibold">Misc</span>
+            )}
+            {ingredientsBySubheading[maximumSubheading]?.map((i, idx) => (
+              <IngredientListItem key={idx} ingredient={i} scale={scale} />
+            ))}
+          </>
         )}
-        {ingredientsBySubheading[maximumSubheading]?.map((i, idx) => (
-          <IngredientListItem key={idx} ingredient={i} scale={scale} />
-        ))}
       </ul>
     </div>
   );
