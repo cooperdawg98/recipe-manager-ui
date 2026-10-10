@@ -1,6 +1,7 @@
 import {
   type RouteConfig,
   index,
+  layout,
   prefix,
   route,
 } from "@react-router/dev/routes";
@@ -17,16 +18,18 @@ import {
 
 export default [
   // Use index() for the root path "/" to render App.tsx
-  index("../App.tsx"),
+  layout("MainLayout.tsx", [
+    index("../App.tsx"),
 
-  ...prefix("recipe", [
-    route(":recipeId", "../features/recipePage/recipePage.tsx"),
+    ...prefix("recipe", [
+      route(":recipeId", "../features/recipePage/recipePage.tsx"),
 
-    // Recipe catchall
-    // Should only be reached if no "recipeId" is provided in url
-    route("*", "../features/recipePage/recipeCatchAll.tsx"),
+      // Recipe catchall
+      // Should only be reached if no "recipeId" is provided in url
+      route("*", "../features/recipePage/recipeCatchAll.tsx"),
+    ]),
+    route("recipes", "../features/recipePage/recipePage2.tsx"),
   ]),
-  route("recipes", "../features/recipePage/recipePage2.tsx"),
 
   // Wildcard route match sends all unmatched route requests to the catch all page
   route("*", "../catchall.tsx"),

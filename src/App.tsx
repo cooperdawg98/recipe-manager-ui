@@ -18,8 +18,8 @@ function App() {
   // }, []);
 
   return (
-    <div className="flex w-full h-125 justify-center items-center">
-      <div className="flex flex-col w-md h-125 justify-center items-center">
+    <div className="flex w-full h-full justify-center items-center">
+      <div className="flex flex-col w-full h-full justify-center items-center">
         <div className="flex flex-row gap-4">
           <a href="https://vite.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -28,7 +28,7 @@ function App() {
             <img src={reactLogo} className="logo react" alt="React logo" />
           </a>
         </div>
-        <h1 className="text-gray-600">Vite + React</h1>
+        <h1 className="text-gray-600">Recipe Manager</h1>
         <div className="flex flex-col w-full justify-center p-4">
           <Counter />
           {/* <h5 className="text-gray-600">
