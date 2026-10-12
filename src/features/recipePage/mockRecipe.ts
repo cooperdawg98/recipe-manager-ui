@@ -62,7 +62,7 @@ export const subheadings: Subheading[] = [
 export const ingredients: Ingredient[] = [
   {
     recipeId: "1",
-    subheading: 1,
+    subheading: 2,
     displayOrder: 1,
     label: "Kosher salt",
   },

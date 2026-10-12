@@ -18,8 +18,8 @@ function App() {
   // }, []);
 
   return (
-    <div className="flex w-full h-full justify-center items-center">
-      <div className="flex flex-col w-full h-full justify-center items-center">
+    <div className="flex w-screen h-screen justify-center items-center">
+      <div className="flex flex-col w-2xl h-full justify-center items-center">
         <div className="flex flex-row gap-4">
           <a href="https://vite.dev" target="_blank">
             <img src={viteLogo} className="logo" alt="Vite logo" />

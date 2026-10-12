@@ -28,71 +28,78 @@ const recipePage = () => {
 
   // TODO: Add fallback skeleton when data is loading
   return (
-    <div className="flex flex-col w-full h-full justify-center items-center px-4 py-4 pb-20">
-      <div id="header" className="flex flex-col w-full gap-4 pb-4">
-        <h1 id="title">{recipe.recipeInfo.title}</h1>
-        <CollapsibleParagraph value={recipe.recipeInfo.zinger ?? ""} />
-        <div className="flex flex-col w-full gap-1">
-          <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
-            <RecipeSourceLabel
-              source={recipe.recipeInfo.submitter}
-              sourceType={SourceType.Presenter}
-            />
-            <RecipeSourceLabel
-              source={recipe.recipeInfo.link ?? recipe.recipeInfo.source}
-              sourceType={SourceType.Origin}
-            />
+    <div className="flex w-screen h-full justify-start items-center px-4 py-4 pb-40">
+      <div
+        id="recipe container"
+        className="flex flex-col lg:w-2xl h-full justify-center items-center lg:ml-60"
+      >
+        <div id="header" className="flex flex-col w-full gap-4 pb-4">
+          <h1 id="title" className="lg:pt-16">
+            {recipe.recipeInfo.title}
+          </h1>
+          <CollapsibleParagraph value={recipe.recipeInfo.zinger ?? ""} />
+          <div className="flex flex-col w-full gap-1">
+            <div className="flex flex-row w-full justify-around bg-deep-saffron-300 rounded-md py-2">
+              <RecipeSourceLabel
+                source={recipe.recipeInfo.submitter}
+                sourceType={SourceType.Presenter}
+              />
+              <RecipeSourceLabel
+                source={recipe.recipeInfo.link ?? recipe.recipeInfo.source}
+                sourceType={SourceType.Origin}
+              />
+            </div>
+            <div className="flex flex-row w-full justify-around bg-deep-saffron-200 rounded-md py-1">
+              <DateLabel date={recipe.recipeInfo.addedDate} label="Added" />
+              <DateLabel
+                date={recipe.recipeInfo.updatedDate}
+                label="Last Updated"
+              />
+            </div>
           </div>
-          <div className="flex flex-row w-full justify-around bg-deep-saffron-200 rounded-md py-1">
-            <DateLabel date={recipe.recipeInfo.addedDate} label="Added" />
-            <DateLabel
-              date={recipe.recipeInfo.updatedDate}
-              label="Last Updated"
+          <div id="header image">
+            <CaptionedImage
+              width={1500}
+              height={1125}
+              image={recipe.headerImage}
             />
           </div>
         </div>
-        <div id="header image">
-          <CaptionedImage
-            width={1500}
-            height={1125}
-            image={recipe.headerImage}
+        <div id="top options" className="flex flex-col gap-2 py-2 items-center">
+          <Highlights highlights={recipe.highlights} />
+          <TimeEstimateCard
+            totalTime={recipe.recipeInfo.totalTime}
+            prepTime={recipe.recipeInfo.prepTime}
+            cookTime={recipe.recipeInfo.cookTime}
+            serves={recipe.recipeInfo.serves}
+            scale={scale}
           />
+          {/* TODO: Hide scaler input */}
+          <ScaleControls onScaleChange={handleScaleChange} />
         </div>
-      </div>
-      <div id="top options" className="flex flex-col gap-2 py-2 items-center">
-        <Highlights highlights={recipe.highlights} />
-        <TimeEstimateCard
-          totalTime={recipe.recipeInfo.totalTime}
-          prepTime={recipe.recipeInfo.prepTime}
-          cookTime={recipe.recipeInfo.cookTime}
-          serves={recipe.recipeInfo.serves}
-          scale={scale}
-        />
-        {/* TODO: Hide scaler input */}
-        <ScaleControls onScaleChange={handleScaleChange} />
-      </div>
-      {/* TODO: Make ingredients respect display order */}
-      <div className="flex flex-col w-full gap-6 pt-6">
-        <IngredientContainer
-          ingredients={recipe.ingredients}
-          subheadings={recipe.subheadings}
-          scale={scale}
-        />
-        <div className="flex flex-col w-full gap-2">
-          <div className="bg-verdigris-200 rounded-md w-3/4 pl-2 border-l-4 border-verdigris-500">
-            <h2>Directions</h2>
+        {/* TODO: Make ingredients respect display order */}
+        <div className="flex flex-col w-full gap-6 pt-6">
+          <IngredientContainer
+            ingredients={recipe.ingredients}
+            subheadings={recipe.subheadings}
+            scale={scale}
+          />
+          <div className="flex flex-col w-full gap-2">
+            <div className="bg-verdigris-200 rounded-md w-3/4 pl-2 border-l-4 border-verdigris-500">
+              <h2>Directions</h2>
+            </div>
+            <ol className="flex flex-col w-full gap-1">
+              {recipe.directions.map((i, idx) => (
+                <DirectionsListItem key={idx} directionStep={i} />
+              ))}
+            </ol>
           </div>
-          <ol className="flex flex-col w-full gap-1">
-            {recipe.directions.map((i, idx) => (
-              <DirectionsListItem key={idx} directionStep={i} />
-            ))}
-          </ol>
+          <div className="flex flex-col bg-mint-leaf-200 rounded-md p-4 gap-2">
+            <h2>Notes</h2>
+            <p className="whitespace-pre-line">{recipe.notes.value}</p>
+          </div>
+          <TagContainer tags={recipe.tags ?? []} />
         </div>
-        <div className="flex flex-col bg-mint-leaf-200 rounded-md p-4 gap-2">
-          <h2>Notes</h2>
-          <p className="whitespace-pre-line">{recipe.notes.value}</p>
-        </div>
-        <TagContainer tags={recipe.tags ?? []} />
       </div>
       {/* TODO: Apply comments */}
     </div>
