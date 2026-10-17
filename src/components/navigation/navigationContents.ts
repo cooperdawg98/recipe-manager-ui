@@ -1,10 +1,14 @@
 export const navigationContents = [
   {
-    href: "/recipe/test-recipe",
-    title: "Test Recipe",
+    href: "/search",
+    title: "Search",
   },
   {
-    href: "/recipes",
-    title: "Test Recipe 2",
+    href: "/search?tags=chicken&tags=cheesy&tags=simple&createdBy=jhorton",
+    title: "Search w/ params",
+  },
+  {
+    href: "/recipe/test-recipe",
+    title: "Test Recipe",
   },
 ] as const;

@@ -28,6 +28,7 @@ export default [
       // Should only be reached if no "recipeId" is provided in url
       route("*", "../features/recipePage/recipeCatchAll.tsx"),
     ]),
+    route("search", "../features/search/searchPage.tsx"),
     route("recipes", "../features/recipePage/recipePage2.tsx"),
   ]),
 
